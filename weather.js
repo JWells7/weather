@@ -29,42 +29,26 @@
 let handleWeatherResponse = function(response) {
   // leave these two lines alone; they allow for the inspection of
   // the response object in the browser console
-  console.log(response)
-  window.response = response
+  console.log(response);
+  window.response = response;
 
   // **** your code starts here - don't modify anything else. you will be sad.
+    $(".forecast").empty();
 
-  $(".forecast").empty();
-
-  let markup = "";
-  for(let i=0; i<7; i++) {
-
-    markup += "<div class='col-2'>";
-    markup += "<h3 class='icon'>" + icon(response.daily.data[i]) + "</h3>";
-    markup += "<h4 class='temperatureHigh'>" + Math.round(response.daily.data[i].temperatureHigh) + " | " + Math.round(response.daily.data[i].temperatureLow) + "</h4>";
-    markup += "<h5 class='summary'>" + response.daily.data[i].summary + "</h5>"
-    markup += "</div>";
-
-
-//let markup = "";
-//for(let i=0; i<4; i++) {
-//  markup += "<div class='col-3'>";
-//  markup += "<div class='card'>";
-//  markup += "<img class='card-img-top' src='http://image.tmdb.org/t/p/w500" + data.results[i].poster_path + "' alt='Card image cap'>";
-//  markup += "<div class='card-body'>";
-//  markup += "<h4 class='card-title'>" + data.results[i].title + "</h4>";
-//  markup += "<p class='card-text'>" + data.results[i].overview + "</p>";
-//  markup += "<a href='#' class='btn btn-primary'>Go somewhere</a>";
-//  markup += "</div></div></div>";
-
+    let markup="";
+      for(let i=1; i<7; i++) {
+        markup += "<div class='col-2'>";
+        markup += "<h3 class='icon'>" + icon(response.daily.data[i]) + "</h3>";
+        markup += "<h4 class='temperatureHigh'>" + Math.round(response.daily.data[i].temperatureHigh) + " | " + Math.round(response.daily.data[i].temperatureLow) + "</h4>";
+        markup += "<h5 class='summary'>" + response.daily.data[i].summary + "</h5>"
+        markup += "</div>";
+    }
 
   $(".forecast").append(markup);
-
-  $(".forecast").fadeIn(2000);
-
-};
+  $(".forecast").fadeIn(1000);
+}
   // *** your code ends here - no, really.
-};
+
 
 // leave this alone; does the event handling and ajax
 $(function() {
