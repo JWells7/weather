@@ -37,7 +37,7 @@ let handleWeatherResponse = function(response) {
   $(".forecast").empty();
 
   let markup = "";
-  for(let i=0; i<7; i++) {
+  for(let i=1; i<7; i++) {
 
     markup += "<div class='col-2'>";
     markup += "<h3 class='icon'>" + icon(response.daily.data[i]) + "</h3>";
@@ -57,12 +57,13 @@ let handleWeatherResponse = function(response) {
 //  markup += "<a href='#' class='btn btn-primary'>Go somewhere</a>";
 //  markup += "</div></div></div>";
 
+};
 
   $(".forecast").append(markup);
 
   $(".forecast").fadeIn(2000);
 
-};
+
   // *** your code ends here - no, really.
 };
 
